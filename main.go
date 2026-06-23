@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func main() {
-	fmt.Println("Hello from ada-go!")
+	// Implemente o exercício descrito no README.md
 }
