@@ -1,0 +1,19 @@
+  services: # Define os containers/serviços que o Docker Compose vai subir.
+    postgres: # Nome lógico do serviço; outros containers podem acessar por
+    #"postgres".
+      image: postgres:18.4 # Usa a imagem oficial do PostgreSQL na versão 18.4.
+      container_name: postgres18 # Nome fixo do container no Docker.
+      environment: # Variáveis usadas na primeira inicialização do banco.
+        POSTGRES_USER: app # Cria o usuário/superuser inicial chamado "app".
+        POSTGRES_PASSWORD: app # Senha do usuário inicial; troque em ambiente
+        #real.
+        POSTGRES_DB: app # Cria o banco inicial chamado "app".
+      ports: # Mapeia portas entre sua máquina e o container.
+        - "5432:5432" # Porta 5432 local -> porta 5432 do Postgres no container.
+      volumes: # Define armazenamento persistente.
+        - postgres_data:/var/lib/postgresql # Guarda os dados do Postgres 18+ no
+        #volume Docker.
+
+  volumes: # Declara os volumes usados pelos serviços.
+    postgres_data: # Volume nomeado que mantém os dados mesmo recriando o
+    #container.
