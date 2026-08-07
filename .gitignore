@@ -1,0 +1,5 @@
+.env
+
+# Relatórios locais de cobertura.
+coverage.out
+coverage.html
